@@ -26,8 +26,12 @@ should return :
   "tagline" : "You Know, for Search"
 }
 ```
+
 ### Execute it
 docker exec -it debian-es sh
+
+### Apply security settings
+./apply_security.sh
 
 ### Stop it
 docker stop -t0 debian-es && docker rm debian-es
