@@ -1,2 +1,2 @@
 # debian-elasticsearch
-ElasitcSearch 5.4.1 on debian 8
+ElasticSearch 5.4.1 on Debian 8
