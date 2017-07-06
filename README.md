@@ -9,12 +9,12 @@ sudo sysctl vm.max_map_count=262144
 
 docker build -t debian-es .  
 docker run -d -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" --name=debian-es debian-es  
-curl http://localhost:9200  
+curl http://elastic:changeme@localhost:9200  
 should return :  
 ```
 {
-  "name" : "eVKzusw",
-  "cluster_name" : "elasticsearch",
+  "name" : "docker-image",
+  "cluster_name" : "babidi",
   "cluster_uuid" : "0z15Rh-mSZiLE8n_vCBMQg",
   "version" : {
     "number" : "5.4.1",
