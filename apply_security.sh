@@ -25,7 +25,7 @@ curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/role/role_user' -H "
   "indices" : [
     {
       "names" : [ "test_*" ],
-      "privileges" : [ "read", "index" ]
+      "privileges" : [ "read", "index", "create_index" ]
     }
   ]
 }'
