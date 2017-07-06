@@ -4,10 +4,13 @@ ElasticSearch 5.4.1 on Debian 8
 ## Instructions
 
 ### Launch it
-docker build -t debian-es .
-docker run -d -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" --name=debian-es debian-es
-curl http://localhost:9200
-should return :
+Before you start this container make sure to set the max_map_count on your docker host.  
+sudo sysctl vm.max_map_count=262144
+
+docker build -t debian-es .  
+docker run -d -p 9200:9200 -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" --name=debian-es debian-es  
+curl http://localhost:9200  
+should return :  
 ```
 {
   "name" : "eVKzusw",
