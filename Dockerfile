@@ -62,7 +62,8 @@ VOLUME /usr/share/elasticsearch/data
 COPY docker-entrypoint.sh /
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
-# Install plugins
+# Plugins
+RUN bin/elasticsearch-plugin install analysis-icu --batch
 RUN bin/elasticsearch-plugin install x-pack --batch
 
 EXPOSE 9200 9300
