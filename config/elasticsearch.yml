@@ -19,3 +19,5 @@ action.destructive_requires_name: true
 path.conf: /etc/elasticsearch
 path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch
+
+path.repo: ["/mnt/nfs"]

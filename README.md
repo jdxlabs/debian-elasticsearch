@@ -30,7 +30,7 @@ should return :
 ### Execute it
 docker exec -it debian-es sh
 
-### Apply security settings
+### Apply security settings (if x-pack is installed)
 ./apply_security.sh
 
 ### Stop it

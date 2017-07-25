@@ -66,6 +66,10 @@ RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 RUN bin/elasticsearch-plugin install analysis-icu --batch
 RUN bin/elasticsearch-plugin install x-pack --batch
 
+# Create snapshots directory
+RUN mkdir -p /mnt/nfs/es-backup
+RUN chmod 777 /mnt/nfs/es-backup
+
 EXPOSE 9200 9300
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
