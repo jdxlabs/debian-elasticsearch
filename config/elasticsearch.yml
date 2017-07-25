@@ -21,3 +21,13 @@ path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch
 
 path.repo: ["/mnt/nfs"]
+
+# cloud:
+#   aws:
+#     access_key: XXX
+#     secret_key: XXX
+
+# repositories:
+#     s3:
+#         bucket: "jin-es-backup-test"
+#         region: "eu-west-1"
