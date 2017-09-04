@@ -30,6 +30,15 @@ curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/role/role_user' -H "
   ]
 }'
 
+curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/role/role_anonymous' -H "Content-Type: application/json" -d '{
+  "indices" : [
+    {
+      "names" : [ "metrics_*" ],
+      "privileges" : [ "read", "index", "create_index" ]
+    }
+  ]
+}'
+
 # Set users
 #
 curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/user/admin' -H "Content-Type: application/json" -d '{
@@ -46,10 +55,19 @@ curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/user/user' -H "Conte
   "roles" : [ "role_user" ]
 }'
 
+curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/user/anonymous' -H "Content-Type: application/json" -d '{
+  "password" : "anonymous",
+  "full_name" : "Anonymous",
+  "email" : "anonymous@example.com",
+  "roles" : [ "role_anonymous" ]
+}'
+
 # Show applied settings
 echo "\nRoles :"
 curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/role/role_admin' | python -mjson.tool
 curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/role/role_user' | python -mjson.tool
+curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/role/role_anonymous' | python -mjson.tool
 echo "\nUsers :"
 curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/user/admin' | python -mjson.tool
 curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/user/user' | python -mjson.tool
+curl -s -XGET 'elastic:elastic@localhost:9200/_xpack/security/user/anonymous' | python -mjson.tool
