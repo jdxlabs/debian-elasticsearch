@@ -31,6 +31,7 @@ curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/role/role_user' -H "
 }'
 
 curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/role/role_anonymous' -H "Content-Type: application/json" -d '{
+  "cluster": ["all"],
   "indices" : [
     {
       "names" : [ "metrics_*" ],
@@ -53,13 +54,6 @@ curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/user/user' -H "Conte
   "full_name" : "User",
   "email" : "user@example.com",
   "roles" : [ "role_user" ]
-}'
-
-curl -XPOST 'elastic:elastic@localhost:9200/_xpack/security/user/anonymous' -H "Content-Type: application/json" -d '{
-  "password" : "anonymous",
-  "full_name" : "Anonymous",
-  "email" : "anonymous@example.com",
-  "roles" : [ "role_anonymous" ]
 }'
 
 # Show applied settings
