@@ -23,6 +23,9 @@ xpack.watcher.enabled: false
 
 action.destructive_requires_name: true
 
+# http.cors.enabled: true
+# http.cors.allow-origin: "*"
+
 path.conf: /etc/elasticsearch
 path.data: /var/lib/elasticsearch
 path.logs: /var/log/elasticsearch
