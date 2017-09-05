@@ -15,11 +15,11 @@ xpack.security.audit.enabled: true
 xpack.watcher.enabled: false
 
 # anonymous user
-xpack.security.authc:
-  anonymous:
-    username: anonymous
-    roles: role_anonymous
-    authz_exception: true
+# xpack.security.authc:
+#   anonymous:
+#     username: anonymous
+#     roles: role_anonymous
+#     authz_exception: true
 
 action.destructive_requires_name: true
 

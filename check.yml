@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  become: no
+  gather_facts: no
+  tasks:
+    - name: Check that elastic user is connected
+      uri:
+        url: "http://localhost:9200"
+        method: GET
+        user: "elastic"
+        password: "elastic"
