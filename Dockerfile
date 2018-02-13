@@ -64,7 +64,7 @@ RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
 # Plugins
 RUN bin/elasticsearch-plugin install analysis-icu --batch
-RUN bin/elasticsearch-plugin install x-pack --batch
+#RUN bin/elasticsearch-plugin install x-pack --batch
 #RUN bin/elasticsearch-plugin install repository-s3 --batch
 
 # Create snapshots directory
